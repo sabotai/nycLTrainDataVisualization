@@ -1,0 +1,84 @@
+<html>
+
+<head>
+	<link rel="stylesheet" media="screen" href="urban.css">
+
+	<script src="demo/foundation/javascripts/jquery.js"></script>
+	<script src="src/jquery.event.special.js"></script>
+	<script src="src/jquery.easing.min.js"></script>
+	<script src="src/jquery.scrollsnap.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+  	  $(document).scrollsnap({
+   	     snaps: '.snap',
+  	     offset: -10,
+  	     easing: 'easeOutQuad',
+  	     duration: 300,
+  	     proximity: 100
+	  	  });
+	});
+	</script>
+
+
+
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+	<div class="sidebar">
+		<div class="sidecontent">
+			<!-- <a href="/">flickr</a><br>
+			<a href="http://flickr.com/sabotai">flickr</a><br>
+			<a href="http://flickr.com/sabotai">flickr</a><br>
+			<a href="http://flickr.com/sabotai">flickr</a><br>
+			<a href="http://google.com/+">google+</a><br>
+			<a href="http://www.alecmcclure.com">alecmcclure.com</a> -->
+			<p class="sidetitle">urban </p><p class="dreamscapes">dreamscapes</p></div>
+			<div class="sociallinks">
+				<a href="http://www.facebook.com"><img src="facebook.png" width=30></a>
+				<a href="http://www.google.com/+"><img src="google-plus.png" width=30></a>
+				<a href="http://www.twitter.com"><img src="twitter.png" width=30></a>
+				<a href="http://www.flickr.com"><img src="flickr.png" width=30></a></div>
+	</div></div>
+
+
+	<div class="topbar">
+		<p class="profile">Urban Dreamscapes is the photoblog of Brooklyn-based Alec McClure. He holds a BA in Media Production from the University of Houston and is currently pursuing an MFA in Design and Technology from Parsons. All content is original, with rights reserved, unless otherwise noted.</p>
+		<img class="profilepic" src="http://farm8.staticflickr.com/7168/6661411239_922b825d14_o.jpg">
+	</div><br><br>
+
+	<script>
+		if (window.XMLHttpRequest)
+		  {// code for IE7+, Firefox, Chrome, Opera, Safari
+		  xmlhttp=new XMLHttpRequest();
+		  }
+		else
+		  {// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		  }
+		xmlhttp.open("GET",src="tumblr20-front.xml",false);
+		xmlhttp.send();
+		xmlDoc=xmlhttp.responseXML; 
+
+		// document.write("<div class='postcontent'>");
+		var x=xmlDoc.getElementsByTagName("post");
+		for (i=0;i<x.length;i++)
+		  { 
+		  document.write("<div class='postcontent snap'><img class='imagecontent' src='");
+		  document.write(x[i].getElementsByTagName("photo-url")[0].childNodes[0].nodeValue);
+		  document.write("'><span class='caption'>");
+		  document.write(x[i].getElementsByTagName("photo-caption")[0].childNodes[0].nodeValue);
+		  // document.write(x[i].getElementsByTagName("photo-url")[0].getAttribute("max-width"));
+		  document.write(x[i].getAttribute("date"));
+		  document.write("</span></div>");
+		  }
+		// document.write("</div>");
+	</script>
+	<div class="navigation">
+		<p><a href="index.html"><</a>  <a href="index2.html">></a></p>
+	</div>
+
+</body>
+
+</html>

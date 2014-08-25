@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>jQuery Scrollsnap plugin</title>
+  
+  <!-- Included CSS Files (Compressed) -->
+  <link rel="stylesheet" href="demo/foundation/stylesheets/foundation.min.css">
+  <link rel="stylesheet" href="demo/snippet/jquery.snippet.min.css">
+  <link rel="stylesheet" href="demo/css/presentation.css">
+
+  <script src="demo/foundation/javascripts/modernizr.foundation.js"></script>
+
+  <!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <script src="demo/foundation/javascripts/jquery.js"></script>
+  <script src="demo/snippet/jquery.snippet.min.js"></script>
+  <script src="src/jquery.event.special.js"></script>
+  <script src="src/jquery.easing.min.js"></script>
+  <script src="src/jquery.scrollsnap.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(document).scrollsnap({
+        snaps: '.snap',
+        proximity: 100,
+        easing: 'easeOutBack'
+        });
+      $('#scrolling300').scrollsnap({
+        snaps: 'img',
+        proximity: 160,
+        easing: 'easeOutBounce'
+        });
+      $("code pre").snippet("javascript",{style:"vim",showNum:false});
+    });
+  </script>
+</head>
+<body>
+
+  <div class="row">
+    <div class="twelve columns">
+      <h1>Scrollsnap</h1>
+      <p>A jQuery plugin that enhances the scrolling experience, by providing a snapping behaviour.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="six columns">
+      <h3 class="snap">Scroll snapping</h3>
+      <p>Scrollsnap allows to define 'anchor points' onto which the window snaps when you scroll through a web page or parts of it.</p>
+      <p>Scroll this page and notice how the window will snap to each snapping element (visible thru their snap line decoration).</p>
+      <p>Scroll on the colored rectangle, and notice how it snaps perfectly to each of the colored rectangles.</p>
+      <div id="scrolling300">
+        <img src='http://placehold.it/300x160/00ff00/000000&text=scroll me down' />
+        <img src='http://placehold.it/300x160/0000ff/000000&text=keep scrolling' />
+        <img src='http://placehold.it/300x160/ff0000/000000&text=scroll me up' />
+      </div>
+    </div>
+    <div class="six columns">
+      <h3 class="snap">Compatibility</h3>
+      <p>Scrollsnap is compatible with any recent and decent browser:<br>
+        <span class="success label">chrome 24+</span><br>
+        <span class="success label">firefox 18</span><br>
+        <span class="success label">safari 5-6</span><br>
+        <span class="success label">iOS safari 5-6</span><br>
+        <span class="success label">internet explorer 9</span><br>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <h3 class="snap">Use it</h3>
+      <h5>Installation</h5>
+      <p>It of course requires <a href="">jQuery</a>, but also two jquery plugins: <a href="http://james.padolsey.com/javascript/special-scroll-events-for-jquery/">jquery.event.special.js</a> that implements special scroll events, and <a href="http://gsgd.co.uk/sandbox/jquery/easing/">jquery.easing.js</a>, that provides extra <a href="http://easings.net/">easing functions</a>. These plugins are here provided along the <strong>jquery.scrollsnap.js</strong> source file, for ease of use.</p>
+      <p>Note that the Scrollsnap plugin only implements the vertical snapping logic and provides no styling.</p>
+      <h5 class="snap">Usage</h5>
+      <code><pre>
+&lt;script src=&quot;demo/foundation/javascripts/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;src/jquery.event.special.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;src/jquery.easing.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;src/jquery.scrollsnap.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+$(document).ready(function() {
+    $(document).scrollsnap({
+        snaps: '.snap',
+        proximity: 50
+    });
+});
+&lt;/script&gt;</pre></code>
+      <h5 class="snap">Configuration</h5>
+      <p>
+        The following parameters can be passed to the <strong>scrollsnap()</strong> method to influence its behaviour:
+        <dl>
+            <dt>snaps:</dt><dd>the CSS selector of snapping elements; default: '*'.</dd>
+            <dt>proximity:</dt><dd>the maximal distance from the viewport top from which the snapping occurs; default: 12.</dd>
+            <dt>offset:</dt><dd>the vertical offset the snapping move must take; default: 0.</dd>
+            <dt>duration:</dt><dd>the number of milliseconds during which the snapping animation takes place; default: 200.</dd>
+            <dt>easing:</dt><dd><a href="http://easings.net/">easing function</a>; default: 'swing' (the default jquery easing).</dd>
+        </dl>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <h3 class="snap">Contribute</h3>
+      <p><a href="https://github.com/benoitpointet/jquery-scrollsnap-plugin">Fork me on github.</a></p>
+    </div>
+  </div>
+
+<a href="https://github.com/benoitpointet/jquery-scrollsnap-plugin"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+</body>
+</html>

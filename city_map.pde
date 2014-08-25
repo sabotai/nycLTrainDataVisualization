@@ -45,3 +45,10 @@ void cityMap() {
   }
 }
 
+void mouseDragged(){
+ controlX += mouseX-pmouseX;
+ controlY += mouseY-pmouseY;
+
+}
+
+

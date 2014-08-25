@@ -1,0 +1,94 @@
+<html>
+
+<head>
+	<link rel="stylesheet" media="screen" href="urban.css">
+
+	<script src="demo/foundation/javascripts/jquery.js"></script>
+	<script src="src/jquery.event.special.js"></script>
+	<script src="src/jquery.easing.min.js"></script>
+	<script src="src/jquery.scrollsnap.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+  	  $(document).scrollsnap({
+   	     snaps: '.snap',
+  	     offset: -10,
+  	     easing: 'easeOutQuad',
+  	     duration: 300,
+  	     proximity: 100
+  	  });
+});
+</script>
+</head>
+
+<body>
+	<div class="sidebar">
+		<div class="sidecontent">
+			<a href="/">flickr</a><br>
+			<a href="http://flickr.com/sabotai">flickr</a><br>
+			<a href="http://flickr.com/sabotai">flickr</a><br>
+			<a href="http://flickr.com/sabotai">flickr</a><br>
+			<a href="http://google.com/+">google+</a><br>
+			<a href="http://www.alecmcclure.com">alecmcclure.com</a>
+			<p class="sidetitle">urban</p><p class="dreamscapes">dreamscapes</p></div>
+			<div class="sociallinks">
+				<a href="http://www.facebook.com"><img src="facebook.png" width=30></a>
+				<a href="http://www.google.com/+"><img src="google-plus.png" width=30></a>
+				<a href="http://www.twitter.com"><img src="twitter.png" width=30></a>
+				<a href="http://www.flickr.com"><img src="flickr.png" width=30></a></div>
+	</div></div>
+
+
+	<div class="topbar">
+		<p class="profile">Alec McClure kadsjf akdsjfa ;lsdj fasdjfa;d sfjasd;klfja sld kfj asd;lfj;a sl;a sdjfsfas;l dfjl asdfj; lasdf ;als dfj ;lasd jfal sdfjal sdfjasld fjl a;sd jfkasdtw ertwertwer twert wert wertwret wretwertwretw derp</p>
+		<img class="profilepic" src="http://farm8.staticflickr.com/7168/6661411239_922b825d14_o.jpg">
+	</div><br><br>
+
+<script>
+	if (window.XMLHttpRequest)
+	  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  xmlhttp=new XMLHttpRequest();
+	  }
+	else
+	  {// code for IE6, IE5
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.open("GET",src="http://sabotai.com/api/read?start=0&num=10.xml",false);
+	xmlhttp.send();
+	xmlDoc=xmlhttp.responseXML; 
+
+	// document.write("<div class='postcontent'>");
+	var x=xmlDoc.getElementsByTagName("post");
+	for (i=0;i<x.length;i++)
+	  { 
+	  document.write("<div class='postcontent snap'><img class='imagecontent' src='");
+	  document.write(x[i].getElementsByTagName("photo-url")[0].childNodes[0].nodeValue);
+	  document.write("'><span class='caption'>");
+	  document.write(x[i].getElementsByTagName("photo-caption")[0].childNodes[0].nodeValue);
+	  // document.write(x[i].getElementsByTagName("photo-url")[0].getAttribute("max-width"));
+	  document.write(x[i].getAttribute("date"));
+	  document.write("</span></div>");
+	  }
+	// document.write("</div>");
+</script>
+
+<!-- 	<div class="postcontent snap">
+		<a href="http://31.media.tumblr.com/946d61591d8cb128df695ce89862dcac/tumblr_mq1mqx9bb21qdozhyo1_1280.jpg"><img class= "imagecontent" src="http://31.media.tumblr.com/946d61591d8cb128df695ce89862dcac/tumblr_mq1mqx9bb21qdozhyo1_1280.jpg"></a><span class="caption">Expressing Interest<br>7/16/13, 313pm</span></div>
+
+	<div class="postcontent snap">
+		<p><a href="http://24.media.tumblr.com/af6c847ef0ceb514005bf8e04e5e78a1/tumblr_mpukib9CH71qdozhyo1_1280.jpg"><img class="imagecontent" src="http://24.media.tumblr.com/af6c847ef0ceb514005bf8e04e5e78a1/tumblr_mpukib9CH71qdozhyo1_1280.jpg"></a><span class="caption">Williamsburg, Brooklyn, NYC<br>7/12/13, 742pm</span></p></div>
+
+	<div class="postcontent snap">
+		<p><a href="http://31.media.tumblr.com/0e9ce30547f16e8992150874bbb60aab/tumblr_mpi0mewblA1qdozhyo1_1280.jpg"><img class= "imagecontent" src="http://31.media.tumblr.com/0e9ce30547f16e8992150874bbb60aab/tumblr_mpi0mewblA1qdozhyo1_1280.jpg"></a><span class="caption">Coney Island, Brooklyn, NYC<br>7/8/13, 1130am</span></p></div>
+
+	<div class="postcontent snap">
+		<p><a href="http://24.media.tumblr.com/ffa635c357cc2c5ba4f8242f5e839d3d/tumblr_mpi0qeCIys1qdozhyo1_1280.jpg"><img class= "imagecontent" src="http://24.media.tumblr.com/ffa635c357cc2c5ba4f8242f5e839d3d/tumblr_mpi0qeCIys1qdozhyo1_1280.jpg"></a><span class="caption">Cat photo<br>7/16/13, 313pm</span></p></div>
+
+	<div class="postcontent snap">
+		<p><a href="http://24.media.tumblr.com/2604d0ca35c7c73fd55b60081ec1ae2c/tumblr_mpi0hyAFvO1qdozhyo1_1280.jpg"><img class= "imagecontent" src="http://24.media.tumblr.com/2604d0ca35c7c73fd55b60081ec1ae2c/tumblr_mpi0hyAFvO1qdozhyo1_1280.jpg"></a><span class="caption">Cat photo<br>7/16/13, 313pm</span></p></div>
+	<div class="postcontent snap">
+		<p><a href="http://31.media.tumblr.com/4b3d6dd2b2a4c505165216198f81f722/tumblr_mp5359feSF1qdozhyo1_1280.jpg"><img class= "imagecontent" src="http://31.media.tumblr.com/4b3d6dd2b2a4c505165216198f81f722/tumblr_mp5359feSF1qdozhyo1_1280.jpg"></a><span class="caption">Cat photo<br>7/16/13, 313pm</span></p></div>
+	<div class="postcontent snap">
+		<p><a href="http://24.media.tumblr.com/1263fc522d038855a398d822eb2beb1d/tumblr_mp52v2wmuM1qdozhyo1_1280.jpg"><img class= "imagecontent" src="http://24.media.tumblr.com/1263fc522d038855a398d822eb2beb1d/tumblr_mp52v2wmuM1qdozhyo1_1280.jpg"></a><span class="caption">Cat photo<br>7/16/13, 313pm</span></p></div> -->
+</body>
+
+</html>
